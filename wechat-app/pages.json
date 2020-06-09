@@ -1,0 +1,104 @@
+{
+	"pages": [{
+		"path": "pages/tabbar/index/index",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"navigationBarTitleText": "首页",
+			"app-plus": {
+				"bounce": "vertical"
+			}
+		}
+	}, {
+		"path": "pages/tabbar/extend/extend",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"navigationBarTitleText": "教学",
+			"app-plus": {
+				"bounce": "vertical"
+			}
+		}
+	}, {
+		"path": "pages/tabbar/my/my",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"backgroundColorTop": "#5677FC",
+			"navigationBarTitleText": "我的",
+			"app-plus": {
+				"bounce": "vertical",
+				// #ifdef APP-PLUS
+				"titleNView": {
+					"padding-right": "12px",
+					"buttons": [{
+						"float": "right",
+						"width": "36px",
+						"type": "share"
+					}]
+				},
+				// #endif 
+				"subNVues": [{
+					"id": "share",
+					"path": "components/views/app-plus/tui-share/tui-share",
+					"type": "popup",
+					"style": {
+						"position": "dock",
+						"height": "500rpx",
+						"bottom": 0
+					}
+				}]
+			}
+
+		}
+	}, {
+		"path": "pages/common/login/login",
+		"style": {
+			"backgroundColorTop": "#5677FC",
+			"backgroundColorBottom": "#ffffff",
+			"navigationBarTitleText": "登录"
+		}
+	}],
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"tui-(.*)": "@/components/thorui/tui-$1/tui-$1.vue"
+		}
+	},
+	"globalStyle": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#5677FC",
+		"navigationBarTitleText": "Templat",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#fafafa",
+		"backgroundColorTop": "#fafafa",
+		"backgroundColorBottom": "#fafafa"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#5677FC",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/tabbar/index/index",
+				"text": "首页",
+				"iconPath": "static/images/tabbar/home.png",
+				"selectedIconPath": "static/images/tabbar/home_fill.png"
+			},
+			{
+				"pagePath": "pages/tabbar/extend/extend",
+				"text": "教学",
+				"iconPath": "static/images/tabbar/code_gray.png",
+				"selectedIconPath": "static/images/tabbar/code_active.png"
+			},
+			{
+				"pagePath": "pages/tabbar/my/my",
+				"text": "我的",
+				"iconPath": "static/images/tabbar/people.png",
+				"selectedIconPath": "static/images/tabbar/people_fill.png"
+			}
+		]
+	}
+}
