@@ -16,12 +16,13 @@
 
 后续将在我的公众号 **程序员涂陌** 中陆续发布，请持续关注！
 
-<div align=center>
+<div>
   <img src="https://tycoding.cn/cdn/qrcode_for_gh.jpg">
   <div style="font-size: 14px;font-weight: bold;">
     欢迎关注公众号：程序员涂陌
   </div>
 </div>
+
 
 
 
