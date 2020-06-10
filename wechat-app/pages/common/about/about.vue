@@ -18,8 +18,8 @@
 			<tui-card>
 				<template v-slot:body>
 					<view class="body-base">
-						<view>1. SpringBoot与Shiro的集成，以及身份校验、Token交互的实现</view>
-						<view class="body-text-pd">2. Uni-app与Java Web项目结合的最佳实践</view>
+						<view>1. Uni-app与Java Web项目结合的最佳实践</view>
+						<view class="body-text-pd">2. SpringBoot与Shiro的集成，以及身份校验、Token交互的实现</view>
 						<view class="body-text-pd">3. 如何优雅的封装一套Uni-app(微信小程序)脚手架，包括：request封装、vuex存储、router页面路由、与Java后端数据交互</view>
 						<view class="body-text-pd">4. 如何优雅的封装一套SpringBoot&Shiro权限项目脚手架，如何处理前后端分离Token交互</view>
 						<view class="body-text-pd">5. 如何处理小程序端Request请求，后续将从Login请求展开逐步分析前后端交互流程</view>
