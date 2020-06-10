@@ -16,13 +16,9 @@
 
 后续将在我的公众号 **程序员涂陌** 中陆续发布，请持续关注！
 
-<div style="width:260px;">
-  <img src="https://tycoding.cn/cdn/qrcode_for_gh.jpg">
-  <div style="font-size: 14px;font-weight: bold;" align="center">
-    欢迎关注公众号：程序员涂陌
-  </div>
-</div>
-
+| 程序员涂陌                                     |
+| ---------------------------------------------- |
+| ![](https://tycoding.cn/cdn/qrcode_for_gh.jpg) |
 
 
 
