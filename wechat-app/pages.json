@@ -62,6 +62,20 @@
 			"navigationBarTitleText": "关于"
 		}
 	}, {
+		"path": "pages/common/info/info",
+		"style": {
+			"backgroundColorTop": "#5677FC",
+			"backgroundColorBottom": "#ffffff",
+			"navigationBarTitleText": "账户信息"
+		}
+	}, {
+		"path": "pages/common/github/github",
+		"style": {
+			"backgroundColorTop": "#5677FC",
+			"backgroundColorBottom": "#ffffff",
+			"navigationBarTitleText": "Github"
+		}
+	}, {
 		"path": "pages/common/login/login",
 		"style": {
 			"backgroundColorTop": "#5677FC",

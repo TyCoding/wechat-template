@@ -26,6 +26,20 @@ const router = new Router({
 			},
 		},
 		{
+			path: '/pages/common/info/info',
+			name: 'info',
+			meta: {
+				title: '账户信息',
+			},
+		},
+		{
+			path: '/pages/common/github/github',
+			name: 'github',
+			meta: {
+				title: '账户信息',
+			},
+		},
+		{
 			path: '/pages/common/login/login',
 			name: 'login',
 			meta: {

@@ -1,16 +1,13 @@
 /*
  Navicat Premium Data Transfer
-
  Source Server         : localhost_3306
  Source Server Type    : MySQL
  Source Server Version : 50729
  Source Host           : localhost:3306
  Source Schema         : wechat_api
-
  Target Server Type    : MySQL
  Target Server Version : 50729
  File Encoding         : 65001
-
  Date: 09/06/2020 10:57:29
 */
 
@@ -33,7 +30,7 @@ CREATE TABLE `tb_user` (
 -- Records of tb_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_user` VALUES (1, 'tycoding', '250b8460be2cf5c3d93938074b63f8e0', 'https://gitee.com/tytumo/pictures/raw/master/img/20200609105634.png');
+INSERT INTO `tb_user` VALUES (1, 'tycoding', '250b8460be2cf5c3d93938074b63f8e0', 'http://cdn.tycoding.cn/20200609171249.png');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

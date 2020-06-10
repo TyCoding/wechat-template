@@ -13,10 +13,10 @@
 				</navigator>
 			</view>
 			<view v-show="name" class="user">
-				<image class="avatar-img" src="http://cdn.tycoding.cn/20200609171249.png"></image>
+				<image class="avatar-img" :src="avatar"></image>
 				<view class="user-info-mobile">
 					<text>{{ name }}</text>
-					<view class="edit-img" hover-class="opcity" :hover-stay-time="150">
+					<view @tap="handleChangeInfo" class="edit-img" hover-class="opcity" :hover-stay-time="150">
 						<image src="/static/images/my/mine_icon_bianji_3x.png"></image>
 					</view>
 				</view>
@@ -29,7 +29,7 @@
 				<text class="middle-tag">About</text>
 			</view>
 			<view @click="handleGithub" class="middle-item" hover-class="opcity" :hover-stay-time="150">
-				<image class="car-img" src="/static/images/my/github_3x.png"></image>
+				<image class="car-img" src="/static/images/my/github.png"></image>
 				<text class="middle-tag">GitHub</text>
 			</view>
 		</view>
@@ -67,7 +67,14 @@
 				})
 			},
 			handleGithub() {
-
+				this.$Router.push({
+					name: 'github'
+				})
+			},
+			handleChangeInfo() {
+				this.$Router.push({
+					name: 'info'
+				})
 			},
 			logout() {
 				let _this = this

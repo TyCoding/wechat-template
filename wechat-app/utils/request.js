@@ -9,7 +9,8 @@ import Request from '@/components/luch-request/index.js'
 const http = new Request();
 
 // 全局配置
-http.config.baseURL = config.BASE_URL
+// http.config.baseURL = config.BASE_URL
+http.config.baseURL = config.BURY_URL //测试使用服务地址
 
 // request interceptor
 http.interceptors.request.use(config => {
@@ -21,9 +22,6 @@ http.interceptors.request.use(config => {
 		// if store has token
 		// set request header
 		config.header['Authorization'] = getToken()
-		
-		// get user info
-		// store.dispatch('user/getInfo')
 	}
 	
 	return config;
@@ -37,7 +35,6 @@ http.interceptors.request.use(config => {
 // response interceptor
 http.interceptors.response.use(response => {
 	let res = response.data
-	console.log(res)
 	uni.hideLoading()
 	if (res.code == 401) {
 		uni.clearStorageSync()
@@ -50,11 +47,9 @@ http.interceptors.response.use(response => {
 			confirmText: "登录",
 			success(res) {
 				if (res.confirm) {
-					//store.commit("logout") 登录页面执行
-					// uni.redirectTo({
-					// 	url: '/pages/common/login/login'
-					// })
-					console.log('去登录')
+					uni.redirectTo({
+						url: '/pages/common/login/login'
+					})
 				} else {
 					callback(false)
 				}

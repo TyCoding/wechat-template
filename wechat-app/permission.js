@@ -13,7 +13,6 @@ const whiteList = ['login']
  */
 router.beforeEach(async (to, from, next) => {
 	const hasToken = getToken()
-	console.log('hasToken: ' + hasToken)
 	if (hasToken) {
 		if (to.name === 'login') {
 			next({
