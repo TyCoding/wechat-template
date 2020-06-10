@@ -55,6 +55,13 @@
 
 		}
 	}, {
+		"path": "pages/common/about/about",
+		"style": {
+			"backgroundColorTop": "#5677FC",
+			"backgroundColorBottom": "#ffffff",
+			"navigationBarTitleText": "关于"
+		}
+	}, {
 		"path": "pages/common/login/login",
 		"style": {
 			"backgroundColorTop": "#5677FC",

@@ -4,7 +4,7 @@
 			<image class="bg-img" src="/static/images/my/mine_bg_3x.png"></image>
 			<view v-show="name" @tap="logout" class="logout" hover-class="opcity" :hover-stay-time="150">
 				<image class="logout-img" src="/static/images/my/icon_out_3x.png"></image>
-				<text class="logout-txt" >退出</text>
+				<text class="logout-txt">退出</text>
 			</view>
 			<view v-show="!name" class="user-wrapper">
 				<navigator url="/pages/common/login/login" hover-class="opcity" :hover-stay-time="150" class="user">
@@ -24,9 +24,13 @@
 		</view>
 
 		<view class="middle-container">
-			<view data-index="1" class="middle-item" hover-class="opcity" :hover-stay-time="150">
+			<view @click="handleAbout" class="middle-item" hover-class="opcity" :hover-stay-time="150">
 				<image class="ticket-img" src="/static/images/index/template.png"></image>
 				<text class="middle-tag">About</text>
+			</view>
+			<view @click="handleGithub" class="middle-item" hover-class="opcity" :hover-stay-time="150">
+				<image class="car-img" src="/static/images/my/github_3x.png"></image>
+				<text class="middle-tag">GitHub</text>
 			</view>
 		</view>
 
@@ -57,13 +61,21 @@
 			return {};
 		},
 		methods: {
+			handleAbout() {
+				this.$Router.push({
+					name: 'about'
+				})
+			},
+			handleGithub() {
+
+			},
 			logout() {
 				let _this = this
 				uni.showModal({
-				    title: '提示',
-				    content: '确定退出登录？',
-				    success: function (res) {
-				        if (res.confirm) {
+					title: '提示',
+					content: '确定退出登录？',
+					success: function(res) {
+						if (res.confirm) {
 							// 注销账户，清空Token
 							_this.$store.dispatch('user/logout').then(res => {
 								// 路由到登录页面
@@ -71,13 +83,13 @@
 									name: 'login'
 								})
 							})
-				        } else if (res.cancel) {
+						} else if (res.cancel) {
 							uni.showToast({
 								icon: 'none',
 								title: '已取消'
 							})
-				        }
-				    }
+						}
+					}
 				});
 			}
 		}

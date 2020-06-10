@@ -32,6 +32,13 @@ const router = new Router({
 				title: '登录',
 			},
 		},
+		{
+			path: '/pages/common/about/about',
+			name: 'about',
+			meta: {
+				title: '关于',
+			},
+		},
 	]
 });
 export default router

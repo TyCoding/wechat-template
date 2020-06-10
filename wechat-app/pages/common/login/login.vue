@@ -10,23 +10,31 @@
 -->
 <template>
 	<view class="container">
-		<view class="tui-bg-box">
-			<image src="/static/images/login/bg_login.png" class="tui-bg-img"></image>
-			<image src="/static/images/my/mine_def_touxiang_3x.png" class="tui-photo"></image>
-			<view class="tui-login-name">Login</view>
-		</view>
-		<view :report-submit="true">
-			<view class="tui-login-from">
-				<view class="tui-line-cell">
-					<tui-icon name="people" :size="20" color="#6d7a87"></tui-icon>
-					<input placeholder-class="tui-phcolor" class="tui-input" placeholder="请输入用户名" maxlength="11" v-model="username"
-					 type="number" />
-				</view>
-				<view class="tui-line-cell tui-top28">
-					<tui-icon name="pwd" :size="20" color="#6d7a87"></tui-icon>
-					<input placeholder-class="tui-phcolor" class="tui-input" placeholder="请输入密码" maxlength="6" type="password" v-model="password" />
-				</view>
-				<button @click="handleLogin" class="tui-button-primary tui-btn-submit" hover-class="tui-button-hover" form-type="submit">登录</button>
+		<view class="tui-page-title">登录</view>
+		<view class="tui-form">
+			<view class="tui-view-input">
+				<tui-list-cell :hover="false" :lineLeft="false" backgroundColor="transparent">
+					<view class="tui-cell-input">
+						<tui-icon name="people" color="#6d7a87" :size="20"></tui-icon>
+						<input :adjust-position="false" v-model="username" placeholder="请输入用户名" placeholder-class="tui-phcolor" type="text" />
+						<view class="tui-icon-close" v-show="username" @tap="clearInput('username')">
+							<tui-icon name="close-fill" :size="16" color="#bfbfbf"></tui-icon>
+						</view>
+					</view>
+				</tui-list-cell>
+				<tui-list-cell :hover="false" :lineLeft="false" backgroundColor="transparent">
+					<view class="tui-cell-input">
+						<tui-icon name="pwd" color="#6d7a87" :size="20"></tui-icon>
+						<input :adjust-position="false" v-model="password" placeholder="请输入密码" :password="true" placeholder-class="tui-phcolor"
+						 type="text" />
+						<view class="tui-icon-close" v-show="password" @tap="clearInput('password')">
+							<tui-icon name="close-fill" :size="16" color="#bfbfbf"></tui-icon>
+						</view>
+					</view>
+				</tui-list-cell>
+			</view>
+			<view class="tui-btn-box">
+				<tui-button @click="handleLogin" :disabledGray="true" :shadow="true" shape="circle">登录</tui-button>
 			</view>
 		</view>
 	</view>
@@ -53,6 +61,13 @@
 			})
 		},
 		methods: {
+			clearInput(v) {
+				if (v == 'username') {
+					this.username = ''
+				} else if (v == 'password') {
+					this.password = ''
+				}
+			},
 			handleLogin() {
 				let rules = [{
 						name: 'username',
@@ -94,110 +109,132 @@
 	};
 </script>
 
-<style>
-	page {
-		background-color: #fff;
-	}
+<style lang="scss">
+	.container {
+		.tui-status-bar {
+			width: 100%;
+			height: var(--status-bar-height);
+		}
 
-	.tui-bg-box {
-		width: 100%;
-		box-sizing: border-box;
-		position: relative;
-		padding-top: 44px;
-	}
+		.tui-header {
+			width: 100%;
+			padding: 40rpx;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			box-sizing: border-box;
+		}
 
-	.tui-photo {
-		height: 138rpx;
-		width: 138rpx;
-		display: block;
-		margin: 10rpx auto 0 auto;
-		border-radius: 50%;
-		position: relative;
-		z-index: 2;
-	}
+		.tui-page-title {
+			width: 100%;
+			font-size: 48rpx;
+			font-weight: bold;
+			color: $uni-text-color;
+			line-height: 42rpx;
+			padding: 40rpx;
+			box-sizing: border-box;
+		}
 
-	.tui-login-name {
-		width: 128rpx;
-		height: 40rpx;
-		font-size: 30rpx;
-		color: #fff;
-		margin: 36rpx auto 0 auto;
-		text-align: center;
-		position: relative;
-		z-index: 2;
-	}
+		.tui-form {
+			padding-top: 50rpx;
 
-	.tui-bg-img {
-		width: 100%;
-		height: 346rpx;
-		display: block;
-		position: absolute;
-		top: 0;
-	}
+			.tui-view-input {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 0 40rpx;
 
-	.tui-login-from {
-		width: 100%;
-		padding: 128rpx 104rpx 0 104rpx;
-		box-sizing: border-box;
-	}
+				.tui-cell-input {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					padding-top: 48rpx;
+					padding-bottom: $uni-spacing-col-base;
 
-	.tui-input {
-		font-size: 32rpx;
-		flex: 1;
-		display: inline-block;
-		padding-left: 32rpx;
-		box-sizing: border-box;
-		overflow: hidden;
-	}
+					input {
+						flex: 1;
+						padding-left: $uni-spacing-row-base;
+					}
 
-	.tui-line-cell {
-		padding: 27rpx 0;
-		display: -webkit-flex;
-		display: flex;
-		-webkiit-align-items: center;
-		align-items: center;
-		position: relative;
-		box-sizing: border-box;
-		overflow: hidden;
-	}
+					.tui-icon-close {
+						margin-left: auto;
+					}
+				}
+			}
 
-	.tui-line-cell::after {
-		content: '';
-		position: absolute;
-		border-bottom: 1rpx solid #e0e0e0;
-		-webkit-transform: scaleY(0.5);
-		transform: scaleY(0.5);
-		bottom: 0;
-		right: 0;
-		left: 0;
-	}
+			.tui-cell-text {
+				width: 100%;
+				padding: $uni-spacing-col-lg $uni-spacing-row-lg;
+				box-sizing: border-box;
+				font-size: $uni-font-size-sm;
+				color: $uni-text-color-grey;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 
-	.tui-top28 {
-		margin-top: 28rpx;
-	}
+				.tui-color-primary {
+					color: $uni-color-primary;
+				}
+			}
 
-	.tui-btn-class {
-		width: 196rpx !important;
-		height: 54rpx !important;
-		border-radius: 27rpx !important;
-		font-size: 28rpx !important;
-		padding: 0 !important;
-		line-height: 54rpx !important;
-	}
+			.tui-btn-box {
+				width: 100%;
+				padding: 0 $uni-spacing-row-lg;
+				box-sizing: border-box;
+				margin-top: 80rpx;
+			}
+		}
 
-	.tui-btn-submit {
-		margin-top: 100rpx;
-	}
+		.tui-login-way {
+			width: 100%;
+			font-size: 26rpx;
+			color: $uni-color-primary;
+			display: flex;
+			justify-content: center;
+			position: fixed;
+			left: 0;
+			bottom: 80rpx;
 
-	.tui-protocol {
-		color: #333;
-		font-size: 24rpx;
-		text-align: center;
-		width: 100%;
-		margin-top: 29rpx;
-	}
+			view {
+				padding: 12rpx 0;
+			}
+		}
 
-	.tui-protocol-red {
-		color: #f54f46;
+		.tui-auth-login {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-bottom: 80rpx;
+			padding-top: 20rpx;
+
+			.tui-icon-platform {
+				width: 90rpx;
+				height: 90rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				margin-left: 40rpx;
+
+				&::after {
+					content: '';
+					position: absolute;
+					width: 200%;
+					height: 200%;
+					transform-origin: 0 0;
+					transform: scale(0.5, 0.5) translateZ(0);
+					box-sizing: border-box;
+					left: 0;
+					top: 0;
+					border-radius: 180rpx;
+					border: 1rpx solid $uni-text-color-placeholder;
+				}
+			}
+
+			.tui-login-logo {
+				width: 60rpx;
+				height: 60rpx;
+			}
+		}
 	}
 </style>

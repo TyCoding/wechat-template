@@ -5,11 +5,8 @@ server:
 
 spring:
   profiles:
+    #开发环境：dev  生产环境：prod
     active: dev
-
-  #thymeleaf模板引擎
-  thymeleaf:
-    cache: false
 
   #文件上传相关设置
   servlet:
