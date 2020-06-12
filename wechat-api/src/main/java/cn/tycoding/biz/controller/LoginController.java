@@ -1,6 +1,8 @@
 package cn.tycoding.biz.controller;
 
+import cn.tycoding.common.constants.enums.CommonEnum;
 import cn.tycoding.common.controller.BaseController;
+import cn.tycoding.common.exception.GlobalException;
 import cn.tycoding.common.utils.MD5Util;
 import cn.tycoding.common.utils.R;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -27,6 +29,9 @@ public class LoginController extends BaseController {
     @GetMapping("/login")
     public R login(@RequestParam(value = "username", required = false) String username,
                    @RequestParam(value = "password", required = false) String password) {
+        if (username == null || password == null) {
+            throw new GlobalException(CommonEnum.LOGIN_ERROR.getMsg());
+        }
         Subject subject = getSubject();
         String encrypt_password = MD5Util.encryptPassword(username, password);
         UsernamePasswordToken token = new UsernamePasswordToken(username, encrypt_password);
