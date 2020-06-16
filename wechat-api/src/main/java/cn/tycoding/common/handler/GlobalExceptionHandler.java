@@ -38,7 +38,6 @@ public class GlobalExceptionHandler {
         return new R<>(CommonConstant.ERROR, e.getMsg());
     }
 
-
     @ExceptionHandler(value = UnauthorizedException.class)
     public R handleUnauthorizedException(UnauthorizedException e) {
         log.error("UnauthorizedException, {}", e.getMessage());

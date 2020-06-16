@@ -50,5 +50,4 @@ public class BaseController {
         map.put("token", getSession().getId());
         return map;
     }
-
 }
