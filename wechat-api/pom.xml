@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mybatis.version>2.1.0</mybatis.version>
-        <shiro-spring-version>1.3.2</shiro-spring-version>
+        <shiro-spring-version>1.7.0</shiro-spring-version>
         <shiro-ehcache.version>1.4.0</shiro-ehcache.version>
         <spring-aspects.version>5.0.7.RELEASE</spring-aspects.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
